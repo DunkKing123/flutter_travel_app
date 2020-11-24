@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import com.xxx.flutter.plugin.asr.AsrPlugin;
 
+import org.devio.flutter.splashscreen.SplashScreen;
+
 import java.text.SimpleDateFormat;
 
 import androidx.annotation.NonNull;
@@ -19,6 +21,12 @@ public class MainActivity extends FlutterActivity {
         GeneratedPluginRegistrant.registerWith(flutterEngine);
         //flutter sdk >= v1.17.0 时使用下面方法注册自定义plugin
         AsrPlugin.registerWith(this, flutterEngine.getDartExecutor().getBinaryMessenger());
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        SplashScreen.show(this,true);
+        super.onCreate(savedInstanceState);
     }
 
 
