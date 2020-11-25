@@ -87,26 +87,27 @@ class _WebViewState extends State<WebView> {
       backButtonColor = Colors.white;
     }
 
-    return SafeArea(
+    return Scaffold(
+      body: Padding(padding :EdgeInsets.only(top: StatusBarUtil.getStatusBarHeight(context)),
       child: Column(
-        children: <Widget>[
+          children: <Widget>[
           _appBar(Color(int.parse("0xff" + statusBarColor)), backButtonColor),
-          Expanded(
-            child: WebviewScaffold(
-              url: widget.url,
-              withLocalStorage: true,
-              withZoom: true,
-              hidden: true,
-              initialChild: Container(
-                color: Colors.white,
-                child: Center(
-                  child: CircularProgressIndicator(),
-                ),
-              ),
-            ),
-          )
-        ],
-      ),
+    Expanded(
+    child: WebviewScaffold(
+    url: widget.url,
+    withLocalStorage: true,
+    withZoom: true,
+    hidden: true,
+    initialChild: Container(
+    color: Colors.white,
+    child: Center(
+    child: CircularProgressIndicator(),
+    ),
+    ),
+    ),
+    )
+    ],
+    ),),
     );
   }
 
