@@ -3,6 +3,7 @@ import 'package:flutterapp/dao/search_dao.dart';
 import 'package:flutterapp/model/search_model.dart';
 import 'package:flutterapp/pages/speak_page.dart';
 import 'package:flutterapp/utils/navigator_util.dart';
+import 'package:flutterapp/utils/statusbar_util.dart';
 import 'package:flutterapp/widget/search_bar.dart';
 import 'package:flutterapp/widget/webview.dart';
 
@@ -92,7 +93,7 @@ class _SearchPageState extends State<SearchPage>
             ),
           ),
           child: Container(
-              padding: EdgeInsets.only(top: 25),
+              padding: EdgeInsets.only(top: StatusBarUtil.getStatusBarHeight(context)),
               height: 80,
               decoration: BoxDecoration(color: Colors.white),
               child: SearchBar(

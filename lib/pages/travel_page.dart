@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterapp/dao/travel_dao.dart';
 import 'package:flutterapp/model/travel_tab_model.dart';
 import 'package:flutterapp/pages/travel_tab_page.dart';
+import 'package:flutterapp/utils/statusbar_util.dart';
 import 'package:underline_indicator/underline_indicator.dart';
 
 class TravelPage extends StatefulWidget {
@@ -50,7 +51,7 @@ class _TravelPageState extends State<TravelPage> with TickerProviderStateMixin,A
       body: Column(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(top: 30),
+            padding: EdgeInsets.only(top: StatusBarUtil.getStatusBarHeight(context)),
             color: Colors.white,
             child: TabBar(
               isScrollable: true,

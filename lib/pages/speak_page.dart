@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterapp/pages/search_page.dart';
 import 'package:flutterapp/plugin/asr_manager.dart';
 import 'package:flutterapp/utils/navigator_util.dart';
+import 'package:flutterapp/utils/statusbar_util.dart';
 
 class SpeakPage extends StatefulWidget {
   @override
@@ -19,7 +20,7 @@ class _SpeakPageState extends State<SpeakPage>
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.all(30),
+        padding: EdgeInsets.all(StatusBarUtil.getStatusBarHeight(context)),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -164,12 +165,11 @@ class _SpeakPageState extends State<SpeakPage>
   }
 
   void _speakStop() {
-    controller.reset();
-    controller.stop();
-
     setState(() {
       speakTips = '长按说话';
     });
+    controller.reset();
+    controller.stop();
     AsrManager.stop();
   }
 }

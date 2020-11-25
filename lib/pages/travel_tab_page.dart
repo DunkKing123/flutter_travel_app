@@ -47,6 +47,12 @@ class _TravelTabPageState extends State<TravelTabPage>
   }
 
   @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: RefreshIndicator(

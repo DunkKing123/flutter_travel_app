@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_splash_screen/flutter_splash_screen.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutterapp/dao/home_dao.dart';
 import 'package:flutterapp/model/home_model.dart';
 import 'package:flutterapp/pages/search_page.dart';
 import 'package:flutterapp/pages/speak_page.dart';
 import 'package:flutterapp/utils/navigator_util.dart';
+import 'package:flutterapp/utils/statusbar_util.dart';
 import 'package:flutterapp/utils/toast_util.dart';
 import 'package:flutterapp/widget/grid_nav.dart';
 import 'package:flutterapp/widget/loadingContainer.dart';
@@ -46,6 +48,9 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
     super.initState();
 //    print("HomePage initState");
     _loadData();
+    Future.delayed(Duration(milliseconds: 600), () {
+      FlutterSplashScreen.hide();
+    });
   }
 
   @override
@@ -191,7 +196,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
         Container(
             height: 80,
             child: Padding(
-              padding: EdgeInsets.only(top: 24),
+              padding: EdgeInsets.only(top: StatusBarUtil.getStatusBarHeight(context)),
               child: SearchBar(
                 searchBarType: _appBarAlpha > 0.2 ? SearchBarType.homeLight:SearchBarType.home,
                 inputBoxClick: _toSearch,

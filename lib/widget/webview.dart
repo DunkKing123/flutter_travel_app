@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:flutterapp/utils/statusbar_util.dart';
 
 const CATCH_URLS = [
   'm.ctrip.com/',
@@ -86,8 +87,8 @@ class _WebViewState extends State<WebView> {
       backButtonColor = Colors.white;
     }
 
-    return Scaffold(
-      body: Column(
+    return SafeArea(
+      child: Column(
         children: <Widget>[
           _appBar(Color(int.parse("0xff" + statusBarColor)), backButtonColor),
           Expanded(
@@ -119,7 +120,7 @@ class _WebViewState extends State<WebView> {
       return Container(
         color: backgroundColor,
         height: 73,
-        padding: EdgeInsets.only(top: 28),
+//        padding: EdgeInsets.only(top: StatusBarUtil.getStatusBarHeight(context)),
         alignment: AlignmentDirectional.center,
         child: FractionallySizedBox(
           widthFactor: 1,
